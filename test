@@ -1,0 +1,67 @@
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/kviks/Orion-Lib-Redacted/refs/heads/main/orion.lua')))()
+
+local Window = OrionLib:MakeWindow({
+    IntroText = "5222222", 
+    Name = ("test script ".." / ".. identifyexecutor()), 
+    HidePremium = false, 
+    SaveConfig = false, 
+    IntroEnabled = true, 
+    ConfigFolder = ""
+})
+local Tab = Window:MakeTab({
+    Name = "test",
+    Icon = "rbxassetid://4483345998",
+    PremiumOnly = false
+})
+
+Tab:AddToggle({
+    Name = "Infinty yield",
+    Default = false,
+    Callback = function(v)
+        loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+    end
+})
+
+
+Tab:AddToggle({
+    Name = "Speed + Jump",
+    Default = false,
+    Callback = function(v)
+	OrionLib:MakeNotification({
+                    Name = "Done!",
+                    Content = "Check... speed work!",
+                    Image = "rbxassetid://4483345998",
+                    Time = 2
+				
+	})f
+        while v do
+            local player = game.Players.LocalPlayer
+            local humanoid = player.Character and player.Character:FindFirstChild("Humanoid")
+
+            if humanoid then
+                humanoid.WalkSpeed = 500 -- Movement speed
+                humanoid.JumpPower = 500 -- Jump height
+                humanoid.Health = math.huge -- Infinite health
+            end
+            task.wait(0.1) -- Pause for optimization
+        end
+        -- Reset parameters when toggled off
+        if not v then
+            local player = game.Players.LocalPlayer
+            local humanoid = player.Character and player.Character:FindFirstChild("Humanoid")
+
+            if humanoid then
+                humanoid.WalkSpeed = 16 -- Default speed
+                humanoid.JumpPower = 50 -- Default jump height
+                humanoid.Health = humanoid.MaxHealth -- Restore health
+            end
+           end
+		end
+	 })
+
+Tab:AddToggle({
+	Name = "Creater AMELOX discord.s95D8GXW7",
+	Default = false,
+	Callback = function(Value)
+	end    
+})
